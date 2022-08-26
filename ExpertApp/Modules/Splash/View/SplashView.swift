@@ -16,11 +16,6 @@ class SplashView: UIViewController {
         }
 
             }
-    override func viewWillAppear(_ animated: Bool) {
-    }
-
-   
-
 }
 extension SplashView{
     

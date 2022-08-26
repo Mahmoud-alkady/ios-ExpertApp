@@ -35,8 +35,8 @@
 		548F024E28B6C89500EF51D7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F024D28B6C89500EF51D7 /* HomeViewModel.swift */; };
 		548F025028B6C8A300EF51D7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F024F28B6C8A300EF51D7 /* HomeView.swift */; };
 		548F025228B6CC1100EF51D7 /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548F025128B6CC1100EF51D7 /* HomeView.storyboard */; };
-		548F025928B6D25500EF51D7 /* ProductHorizontalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548F025728B6D25500EF51D7 /* ProductHorizontalCell.xib */; };
-		548F025A28B6D25500EF51D7 /* ProductHorizontalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F025828B6D25500EF51D7 /* ProductHorizontalCell.swift */; };
+		548F025928B6D25500EF51D7 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 548F025728B6D25500EF51D7 /* ProductCell.xib */; };
+		548F025A28B6D25500EF51D7 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F025828B6D25500EF51D7 /* ProductCell.swift */; };
 		548F025C28B6D40F00EF51D7 /* HomeView+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F025B28B6D40F00EF51D7 /* HomeView+TableView.swift */; };
 		548F025F28B6D4F900EF51D7 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548F025E28B6D4F900EF51D7 /* UITableView+Extension.swift */; };
 		54CE61D428B7F325002DE486 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CE61D328B7F325002DE486 /* Banner.swift */; };
@@ -104,8 +104,8 @@
 		548F024D28B6C89500EF51D7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		548F024F28B6C8A300EF51D7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		548F025128B6CC1100EF51D7 /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
-		548F025728B6D25500EF51D7 /* ProductHorizontalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductHorizontalCell.xib; sourceTree = "<group>"; };
-		548F025828B6D25500EF51D7 /* ProductHorizontalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductHorizontalCell.swift; sourceTree = "<group>"; };
+		548F025728B6D25500EF51D7 /* ProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		548F025828B6D25500EF51D7 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		548F025B28B6D40F00EF51D7 /* HomeView+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView+TableView.swift"; sourceTree = "<group>"; };
 		548F025E28B6D4F900EF51D7 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		54CE61D328B7F325002DE486 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
@@ -464,8 +464,8 @@
 		548F025628B6D25500EF51D7 /* ProductCell */ = {
 			isa = PBXGroup;
 			children = (
-				548F025728B6D25500EF51D7 /* ProductHorizontalCell.xib */,
-				548F025828B6D25500EF51D7 /* ProductHorizontalCell.swift */,
+				548F025728B6D25500EF51D7 /* ProductCell.xib */,
+				548F025828B6D25500EF51D7 /* ProductCell.swift */,
 			);
 			path = ProductCell;
 			sourceTree = "<group>";
@@ -684,7 +684,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				548F025928B6D25500EF51D7 /* ProductHorizontalCell.xib in Resources */,
+				548F025928B6D25500EF51D7 /* ProductCell.xib in Resources */,
 				5431A98E28B7A2A100204DAE /* CartCell.xib in Resources */,
 				548F021428B6BE5D00EF51D7 /* LaunchScreen.storyboard in Resources */,
 				5400D91528B70D2500DAD5DB /* SplashView.storyboard in Resources */,
@@ -843,7 +843,7 @@
 				548F024228B6C19A00EF51D7 /* CartView.swift in Sources */,
 				5400D90828B7022200DAD5DB /* UIView.swift in Sources */,
 				54FEC86228B8423A00C07C69 /* Home+Entity.swift in Sources */,
-				548F025A28B6D25500EF51D7 /* ProductHorizontalCell.swift in Sources */,
+				548F025A28B6D25500EF51D7 /* ProductCell.swift in Sources */,
 				5431A98628B79E7900204DAE /* UIScrollView+Extension.swift in Sources */,
 				548F020528B6BE5B00EF51D7 /* AppDelegate.swift in Sources */,
 				548F020F28B6BE5B00EF51D7 /* ExpertApp.xcdatamodeld in Sources */,

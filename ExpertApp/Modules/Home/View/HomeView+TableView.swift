@@ -2,14 +2,14 @@
 //  HomeView+TableView.swift
 //  ExpertApp
 //
-//  Created by Mahmoud Alkady on 24/08/2022.
+//  Created by Mahmoud Alkady on 25/08/2022.
 //
 import UIKit
 
 extension HomeView: UITableViewDelegate, UITableViewDataSource {
     
     func initTableView() {
-        tableView.initialize(cellClass: ProductHorizontalCell.self, delegate: self, dataSource: self)
+        tableView.initialize(cellClass: ProductCell.self, delegate: self, dataSource: self)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -17,7 +17,7 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeue(cellClass: ProductHorizontalCell.self)
+        let cell = tableView.dequeue(cellClass: ProductCell.self)
         cell.product = products?[indexPath.row]
         cell.delegate = self
         return cell

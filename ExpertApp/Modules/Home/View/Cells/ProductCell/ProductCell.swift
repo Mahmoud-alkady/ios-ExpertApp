@@ -1,13 +1,13 @@
 //
-//  ProductHorizontalCell.swift
+//  ProductCell.swift
 //  ExpertApp
 //
-//  Created by Mahmoud Alkady on 24/08/2022.
+//  Created by Mahmoud Alkady on 25/08/2022.
 //
 
 import UIKit
 
-class ProductHorizontalCell: UITableViewCell {
+class ProductCell: UITableViewCell {
     
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var viewContainerImg: UIView!

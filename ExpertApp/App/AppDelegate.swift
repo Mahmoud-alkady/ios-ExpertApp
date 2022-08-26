@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  ExpertApp
 //
-//  Created by Mahmoud Alkady on 24/08/2022.
+//  Created by Mahmoud Alkady on 25/08/2022.
 //
 
 import UIKit
@@ -22,10 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     fileprivate func setupTabbar() {
-        
-//        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "DINNextLTW23-Light", size: 12)!], for: UIControl.State.normal)
+    
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.blue ], for: .normal)
-       
     }
     
     func deleteUser() {
