@@ -1,0 +1,6 @@
+framework module Pods_ExpertApp_ExpertAppUITests {
+  umbrella header "Pods-ExpertApp-ExpertAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
