@@ -39,9 +39,24 @@ class CartView: UIViewController {
     }
 }
 
+// MARK: - Delegate
+
+extension CartView: CartDelegate {
+    
+    func didClickToDeleteProduct(_ cartId: Int) {
+        viewModel.deleteCart(cartId) { carts in
+            self.carts = carts
+            self.reloadTableView()
+        }
+    }
+}
+
+// MARK: - Nav
+
 extension CartView {
     static func assembleModule() -> UIViewController {
         let view: CartView = UIStoryboard(name: "CartView", bundle: nil).instantiateViewController(withIdentifier: "CartView") as! CartView
         return UINavigationController(rootViewController: view)
     }
 }
+

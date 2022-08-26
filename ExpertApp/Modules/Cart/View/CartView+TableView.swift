@@ -19,7 +19,8 @@ extension CartView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellClass: CartCell.self)
-        cell.product = carts?[indexPath.row].product
+        cell.cart = carts?[indexPath.row]
+        cell.delegate = self
         return cell
     }
     

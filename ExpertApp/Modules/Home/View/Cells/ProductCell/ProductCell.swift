@@ -9,10 +9,7 @@ import UIKit
 
 class ProductCell: UITableViewCell {
     
-    @IBOutlet weak var viewContainer: UIView!
-    @IBOutlet weak var viewContainerImg: UIView!
     @IBOutlet weak var imgProduct: UIImageView!
-   
     @IBOutlet weak var btnCart: UIButton!
     @IBOutlet weak var viewCart: UIView!
     @IBOutlet weak var lblTitle: UILabel!
@@ -31,15 +28,11 @@ class ProductCell: UITableViewCell {
         imgProduct.loadImage(product?.image)
         lblTitle.text = product?.title
         lblDesc.text = product?.desc
-        lblPrice.text = "\(product?.price ?? 0)"
+        lblPrice.text = "\(product?.price ?? 0) LE"
     }
     
     @IBAction func cartAction(_ sender: Any) {
         delegate?.didPressAddToCart(product!)
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
+
 }

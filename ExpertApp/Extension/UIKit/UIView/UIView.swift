@@ -43,7 +43,6 @@ extension UIView {
         set {
             if newValue >= 0 {
                 layer.cornerRadius = newValue
-                clipsToBounds = newValue > 0
             }
         }
     }

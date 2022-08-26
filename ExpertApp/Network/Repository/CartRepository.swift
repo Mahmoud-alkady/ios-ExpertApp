@@ -68,18 +68,11 @@ extension CartRepository {
         completion(.onCompleted)
     }
     
-    func delete(_ cartId: Int) {
-        CartsManager().delete(findProductId(cartId))
+    func delete(_ cartId: Int, _ completion: @escaping (Response<[CartModel]?>) -> ()) {
+        CartsManager().delete(cartId)
         self.carts = CartsManager().retrieve() ?? []
-    }
-    
-    func findProductId(_ cartId: Int) -> Int {
-        for item in carts {
-            if item.cartId == cartId {
-                return item.product?.id ?? 0
-            }
-        }
-        return 0
+        completion(.onSuccess(carts))
+        completion(.onCompleted)
     }
     
     func checkCartDate() {
@@ -91,8 +84,17 @@ extension CartRepository {
             
             let countOfDays = Calendar.current.dateComponents([.day], from: pastDate, to: currentDate).day!
 
-            if countOfDays > 2 {
-                delete(cart.cartId!)
+            if countOfDays > 3 {
+                delete(cart.cartId!) { response in
+                    switch response {
+                    case .onSuccess(let carts):
+                        self.carts = carts ?? []
+                    case .onFailure:
+                        break
+                    case .onCompleted:
+                        break
+                    }
+                }
             }
         }
     }

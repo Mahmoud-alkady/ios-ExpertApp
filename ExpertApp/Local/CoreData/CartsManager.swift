@@ -81,10 +81,10 @@ class CartsManager {
         }
     }
     
-    func delete(_ productId: Int) {
+    func delete(_ cartId: Int) {
         if let result = try? context?.fetch(Carts.fetchRequest()) {
             for object in result {
-                if object.productId == productId {
+                if object.cartId == cartId {
                     context?.delete(object)
                 }
             }

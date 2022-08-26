@@ -11,32 +11,27 @@ class CartCell: UITableViewCell {
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var viewContainerImg: UIView!
     @IBOutlet weak var imgProduct: UIImageView!
-   
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
-    var product: ProductModel? {
+    var delegate: CartDelegate?
+    
+    var cart: CartModel? {
         didSet {
             setupCell()
         }
     }
     
     func setupCell() {
-        imgProduct.loadImage(product?.image)
-        lblTitle.text = product?.title
-        lblDesc.text = product?.desc
-        lblPrice.text = "\(product?.price ?? 0)"
+        imgProduct.loadImage(cart?.product?.image)
+        lblTitle.text = cart?.product?.title
+        lblDesc.text = cart?.product?.desc
+        lblPrice.text = "\(cart?.product?.price ?? 0) LE"
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func actionDelete(_ sender: Any) {
+        delegate?.didClickToDeleteProduct(cart!.cartId!)
     }
     
 }
