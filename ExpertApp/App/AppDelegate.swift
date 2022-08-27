@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Rootscreen().presentRootScreen(in: window!)
     }
     
+    func applicationWillTerminate(_ application: UIApplication) {
+        saveContext()
+    }
+    
     // MARK: - Core Data stack
     
     lazy var persistentContainer: NSPersistentCloudKitContainer = {
