@@ -55,29 +55,23 @@ extension CartRepository {
     
     func add(_ cart: CartModel, _ completion: @escaping (Response<[CartModel]>) -> ()) {
         _ = CartsManager().store(cart)
-        var carts = CartsManager().retrieve() ?? []
-        carts = checkCartDate(&carts)
-        observer(carts.count)
-        completion(.onSuccess(carts))
+        observer(checkCartDate().count)
+        completion(.onSuccess(checkCartDate()))
     }
     
     func get(_ completion: @escaping (Response<[CartModel]?>) -> ()) {
-        var carts = CartsManager().retrieve() ?? []
-        carts = checkCartDate(&carts)
-        observer(carts.count)
-        completion(.onSuccess(carts))
+        observer(checkCartDate().count)
+        completion(.onSuccess(checkCartDate()))
     }
     
     func delete(_ cartId: Int, _ completion: @escaping (Response<[CartModel]?>) -> ()) {
         CartsManager().delete(cartId)
-        var carts = CartsManager().retrieve() ?? []
-        carts = checkCartDate(&carts)
-        observer(carts.count)
-        completion(.onSuccess(carts))
+        observer(checkCartDate().count)
+        completion(.onSuccess(checkCartDate()))
     }
     
-    func checkCartDate(_ carts: inout [CartModel]) -> [CartModel] {
-        for cart in carts {
+    func checkCartDate() -> [CartModel] {
+        for cart in CartsManager().retrieve() ?? [] {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm mm dd yyyy"
             if let pastDate = dateFormatter.date(from: cart.date!) {
@@ -95,7 +89,7 @@ extension CartRepository {
                 }
             }
         }
-        return carts
+        return CartsManager().retrieve() ?? []
     }
     
     func getCurrentDate() -> String {
