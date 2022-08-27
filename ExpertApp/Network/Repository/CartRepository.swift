@@ -55,18 +55,15 @@ extension CartRepository {
     
     func add(_ cart: CartModel, _ completion: @escaping (Response<[CartModel]>) -> ()) {
         _ = CartsManager().store(cart)
-        observer(checkCartDate().count)
         completion(.onSuccess(checkCartDate()))
     }
     
     func get(_ completion: @escaping (Response<[CartModel]?>) -> ()) {
-        observer(checkCartDate().count)
         completion(.onSuccess(checkCartDate()))
     }
     
     func delete(_ cartId: Int, _ completion: @escaping (Response<[CartModel]?>) -> ()) {
         CartsManager().delete(cartId)
-        observer(checkCartDate().count)
         completion(.onSuccess(checkCartDate()))
     }
     
@@ -89,7 +86,9 @@ extension CartRepository {
                 }
             }
         }
-        return CartsManager().retrieve() ?? []
+        let carts = CartsManager().retrieve() ?? []
+        observer(carts.count)
+        return carts
     }
     
     func getCurrentDate() -> String {
