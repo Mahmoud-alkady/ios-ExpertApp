@@ -55,19 +55,25 @@ extension CartRepository {
     
     func add(_ cart: CartModel, _ completion: @escaping (Response<[CartModel]>) -> ()) {
         _ = CartsManager().store(cart)
-        observer(CartsManager().retrieve()?.count ?? 0)
-        completion(.onSuccess(CartsManager().retrieve() ?? []))
+        var carts = CartsManager().retrieve() ?? []
+        carts = checkCartDate(&carts)
+        observer(carts.count)
+        completion(.onSuccess(carts))
     }
     
     func get(_ completion: @escaping (Response<[CartModel]?>) -> ()) {
-        observer(CartsManager().retrieve()?.count ?? 0)
-        completion(.onSuccess(CartsManager().retrieve() ?? []))
+        var carts = CartsManager().retrieve() ?? []
+        carts = checkCartDate(&carts)
+        observer(carts.count)
+        completion(.onSuccess(carts))
     }
     
     func delete(_ cartId: Int, _ completion: @escaping (Response<[CartModel]?>) -> ()) {
         CartsManager().delete(cartId)
-        observer(CartsManager().retrieve()?.count ?? 0)
-        completion(.onSuccess(CartsManager().retrieve() ?? []))
+        var carts = CartsManager().retrieve() ?? []
+        carts = checkCartDate(&carts)
+        observer(carts.count)
+        completion(.onSuccess(carts))
     }
     
     func checkCartDate(_ carts: inout [CartModel]) -> [CartModel] {
