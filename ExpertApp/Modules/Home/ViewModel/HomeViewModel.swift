@@ -8,10 +8,13 @@
 import Foundation
 
 class HomeViewModel {
-        
-    func getProducts(completion: @escaping ([ProductModel]?) -> ()) {
+    
+    var products: [ProductModel]?
+    
+    func getProducts(completion: @escaping () -> ()) {
         PRODUCT.getProducts { products in
-            completion(products)
+            self.products = products
+            completion()
         }
     }
     

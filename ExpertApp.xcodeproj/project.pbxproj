@@ -8,14 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5400D8FF28B6DEA800DAD5DB /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5400D8FE28B6DEA800DAD5DB /* UIImageView+Extension.swift */; };
-		5400D90228B6FFEE00DAD5DB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5400D90128B6FFED00DAD5DB /* UIButton+Extension.swift */; };
 		5400D90528B7009A00DAD5DB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5400D90428B7009A00DAD5DB /* UIColor+Extension.swift */; };
 		5400D90828B7022200DAD5DB /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5400D90728B7022200DAD5DB /* UIView.swift */; };
-		5400D90A28B702C200DAD5DB /* UIView+Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5400D90928B702C200DAD5DB /* UIView+Corners.swift */; };
 		5400D91228B70BEF00DAD5DB /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5400D91028B70BEF00DAD5DB /* SplashView.swift */; };
 		5400D91528B70D2500DAD5DB /* SplashView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5400D91428B70D2500DAD5DB /* SplashView.storyboard */; };
 		5431A98328B79D9600204DAE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431A98228B79D9600204DAE /* TabBarController.swift */; };
-		5431A98628B79E7900204DAE /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431A98528B79E7900204DAE /* UIScrollView+Extension.swift */; };
 		5431A98828B7A02A00204DAE /* CartView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5431A98728B7A02A00204DAE /* CartView.storyboard */; };
 		5431A98D28B7A2A100204DAE /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5431A98B28B7A2A100204DAE /* CartCell.swift */; };
 		5431A98E28B7A2A100204DAE /* CartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5431A98C28B7A2A100204DAE /* CartCell.xib */; };
@@ -74,14 +71,11 @@
 /* Begin PBXFileReference section */
 		228D6D47B4BB016E9F026C97 /* Pods_ExpertApp_ExpertAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpertApp_ExpertAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5400D8FE28B6DEA800DAD5DB /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
-		5400D90128B6FFED00DAD5DB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		5400D90428B7009A00DAD5DB /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5400D90728B7022200DAD5DB /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		5400D90928B702C200DAD5DB /* UIView+Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corners.swift"; sourceTree = "<group>"; };
 		5400D91028B70BEF00DAD5DB /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		5400D91428B70D2500DAD5DB /* SplashView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashView.storyboard; sourceTree = "<group>"; };
 		5431A98228B79D9600204DAE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		5431A98528B79E7900204DAE /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
 		5431A98728B7A02A00204DAE /* CartView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CartView.storyboard; sourceTree = "<group>"; };
 		5431A98B28B7A2A100204DAE /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		5431A98C28B7A2A100204DAE /* CartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartCell.xib; sourceTree = "<group>"; };
@@ -173,14 +167,6 @@
 			path = UIImageView;
 			sourceTree = "<group>";
 		};
-		5400D90028B6FFCE00DAD5DB /* UIButton */ = {
-			isa = PBXGroup;
-			children = (
-				5400D90128B6FFED00DAD5DB /* UIButton+Extension.swift */,
-			);
-			path = UIButton;
-			sourceTree = "<group>";
-		};
 		5400D90328B7008700DAD5DB /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				5400D90728B7022200DAD5DB /* UIView.swift */,
-				5400D90928B702C200DAD5DB /* UIView+Corners.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -246,14 +231,6 @@
 				5431A98228B79D9600204DAE /* TabBarController.swift */,
 			);
 			path = TabBar;
-			sourceTree = "<group>";
-		};
-		5431A98428B79E5100204DAE /* UIScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				5431A98528B79E7900204DAE /* UIScrollView+Extension.swift */,
-			);
-			path = UIScrollView;
 			sourceTree = "<group>";
 		};
 		5431A98928B7A25D00204DAE /* Cells */ = {
@@ -535,10 +512,8 @@
 		54FEC86328B8C05D00C07C69 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				5431A98428B79E5100204DAE /* UIScrollView */,
 				5400D90628B7020E00DAD5DB /* UIView */,
 				5400D90328B7008700DAD5DB /* UIColor */,
-				5400D90028B6FFCE00DAD5DB /* UIButton */,
 				5400D8FD28B6DE8F00DAD5DB /* UIImageView */,
 				5400D8FC28B6DE8000DAD5DB /* UITableView */,
 			);
@@ -837,7 +812,6 @@
 				5431A98328B79D9600204DAE /* TabBarController.swift in Sources */,
 				54CE61D428B7F325002DE486 /* Banner.swift in Sources */,
 				54CE61D628B82C5F002DE486 /* CartsManager.swift in Sources */,
-				5400D90228B6FFEE00DAD5DB /* UIButton+Extension.swift in Sources */,
 				548F024E28B6C89500EF51D7 /* HomeViewModel.swift in Sources */,
 				548F025C28B6D40F00EF51D7 /* HomeView+TableView.swift in Sources */,
 				548F024C28B6C88000EF51D7 /* HomeModel.swift in Sources */,
@@ -856,11 +830,9 @@
 				54FEC86228B8423A00C07C69 /* Home+Entity.swift in Sources */,
 				54A28E3F28B8E83500E22287 /* Cart+Entity.swift in Sources */,
 				548F025A28B6D25500EF51D7 /* ProductCell.swift in Sources */,
-				5431A98628B79E7900204DAE /* UIScrollView+Extension.swift in Sources */,
 				548F020528B6BE5B00EF51D7 /* AppDelegate.swift in Sources */,
 				548F020F28B6BE5B00EF51D7 /* ExpertApp.xcdatamodeld in Sources */,
 				548F025F28B6D4F900EF51D7 /* UITableView+Extension.swift in Sources */,
-				5400D90A28B702C200DAD5DB /* UIView+Corners.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

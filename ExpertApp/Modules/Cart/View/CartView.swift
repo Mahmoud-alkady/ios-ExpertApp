@@ -11,7 +11,6 @@ class CartView: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = CartViewModel()
-    var carts: [CartModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +20,14 @@ class CartView: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.getCarts { carts in
-            self.carts = carts
+        viewModel.getCarts {
             self.reloadTableView()
         }
     }
     
     func reloadTableView() {
         DispatchQueue.main.async { [self] in
-            if self.carts?.isEmpty ?? false {
+            if viewModel.carts?.isEmpty ?? false {
                 EMPTYSCREEN.showAsSubView(view)
             } else {
                 EMPTYSCREEN.close()
@@ -44,8 +42,7 @@ class CartView: UIViewController {
 extension CartView: CartDelegate {
     
     func didClickToDeleteProduct(_ cartId: Int) {
-        viewModel.deleteCart(cartId) { carts in
-            self.carts = carts
+        viewModel.deleteCart(cartId) {
             self.reloadTableView()
         }
     }

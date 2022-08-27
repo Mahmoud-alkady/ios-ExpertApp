@@ -13,7 +13,6 @@ struct Banner  {
     static func showSuccess(_ message: String) {
         DispatchQueue.main.async {
             self.show("success", message, .success, 1)
-        
         }
     }
     
@@ -22,11 +21,11 @@ struct Banner  {
             self.show("error", message, .danger, 1)
         }
     }
+    
     static func show(_ title: String, _ message: String, _ style: BannerStyle, _ duration: Int) {
         let banner = GrowingNotificationBanner(title: title, subtitle: message, style: style)
         banner.duration = 2.5
         banner.show()
         banner.backgroundColor = .darkPurple
-    
-}
+    }
 }

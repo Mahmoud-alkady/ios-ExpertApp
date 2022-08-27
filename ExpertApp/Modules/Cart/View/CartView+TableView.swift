@@ -14,12 +14,12 @@ extension CartView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return carts?.count ?? 0
+        return viewModel.carts?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellClass: CartCell.self)
-        cell.cart = carts?[indexPath.row]
+        cell.cart = viewModel.carts?[indexPath.row]
         cell.delegate = self
         return cell
     }

@@ -73,22 +73,23 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let controllers = [item1, item2]
         self.viewControllers = controllers
         
-        checkCartCount()
-        NotificationCenter.default.addObserver(self, selector: #selector(checkCartCount), name: didChangeProductCart, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(checkCartCount(notification:)), name: didChangeProductCart, object: nil)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: didChangeProductCart, object: nil)
     }
     
-    @objc func checkCartCount() {
-        DispatchQueue.main.async {
-            self.icon2.badgeColor = .darkPurple
-            let cartCount = CART.carts.count
-            if cartCount > 0 {
-                self.icon2.badgeValue = "\(cartCount)"
-            } else {
-                self.icon2.badgeValue = nil
+    @objc func checkCartCount(notification: Notification) {
+        if let cartsCount = notification.object as? Int {
+            DispatchQueue.main.async {
+                self.icon2.badgeColor = .darkPurple
+                let cartCount = cartsCount
+                if cartCount > 0 {
+                    self.icon2.badgeValue = "\(cartCount)"
+                } else {
+                    self.icon2.badgeValue = nil
+                }
             }
         }
     }

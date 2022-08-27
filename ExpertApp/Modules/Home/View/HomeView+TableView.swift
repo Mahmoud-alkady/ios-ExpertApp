@@ -13,12 +13,12 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products?.count ?? 0
+        return viewModel.products?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cellClass: ProductCell.self)
-        cell.product = products?[indexPath.row]
+        cell.product = viewModel.products?[indexPath.row]
         cell.delegate = self
         return cell
     }

@@ -12,7 +12,6 @@ class HomeView: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = HomeViewModel()
-    var products: [ProductModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +26,7 @@ class HomeView: UIViewController {
     }
     
     func getProducts() {
-        viewModel.getProducts { products in
-            self.products = products
+        viewModel.getProducts {
             DispatchQueue.main.async { [self] in
                 tableView.reloadData()
             }

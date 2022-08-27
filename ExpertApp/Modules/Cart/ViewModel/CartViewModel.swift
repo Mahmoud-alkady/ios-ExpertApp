@@ -11,25 +11,27 @@ class CartViewModel {
     
     var carts: [CartModel]?
     
-    func getCarts(completion: @escaping ([CartModel]?) -> ()) {
+    func getCarts(completion: @escaping () -> ()) {
         CART.get { response in
             switch response {
             case .onSuccess(let carts):
-                completion(carts)
+                self.carts = carts
             case .onFailure, .onCompleted:
                 break
             }
+            completion()
         }
     }
     
-    func deleteCart(_ cartId: Int, completion: @escaping ([CartModel]?) -> ()) {
+    func deleteCart(_ cartId: Int, completion: @escaping () -> ()) {
         CART.delete(cartId) { response in
             switch response {
             case .onSuccess(let carts):
-                completion(carts)
+                self.carts = carts
             case .onFailure, .onCompleted:
                 break
             }
+            completion()
         }
     }
     

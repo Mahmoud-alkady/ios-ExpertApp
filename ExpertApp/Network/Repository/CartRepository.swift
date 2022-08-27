@@ -13,11 +13,8 @@ class CartRepository {
     
     static let shared = CartRepository()
     
-    var carts: [CartModel] = [] {
-        didSet {
-            NotificationCenter.default.post(name: didChangeProductCart, object: nil)
-            checkCartDate()
-        }
+    func observer(_ cartCount: Int) {
+        NotificationCenter.default.post(name: didChangeProductCart, object: cartCount)
     }
     
     func sync() {
@@ -33,7 +30,7 @@ class CartRepository {
     
     func setCartLocal(product: ProductModel) {
         var cart = CartModel()
-        cart.cartId = carts.count + 1
+        cart.cartId = (CartsManager().retrieve()?.count ?? 0) + 1
         cart.date = getCurrentDate()
         cart.product = product
         
@@ -58,45 +55,41 @@ extension CartRepository {
     
     func add(_ cart: CartModel, _ completion: @escaping (Response<[CartModel]>) -> ()) {
         _ = CartsManager().store(cart)
-        self.carts = CartsManager().retrieve() ?? []
-        completion(.onSuccess(carts))
+        observer(CartsManager().retrieve()?.count ?? 0)
+        completion(.onSuccess(CartsManager().retrieve() ?? []))
     }
     
     func get(_ completion: @escaping (Response<[CartModel]?>) -> ()) {
-        self.carts = CartsManager().retrieve() ?? []
-        completion(.onSuccess(carts))
-        completion(.onCompleted)
+        observer(CartsManager().retrieve()?.count ?? 0)
+        completion(.onSuccess(CartsManager().retrieve() ?? []))
     }
     
     func delete(_ cartId: Int, _ completion: @escaping (Response<[CartModel]?>) -> ()) {
         CartsManager().delete(cartId)
-        self.carts = CartsManager().retrieve() ?? []
-        completion(.onSuccess(carts))
-        completion(.onCompleted)
+        observer(CartsManager().retrieve()?.count ?? 0)
+        completion(.onSuccess(CartsManager().retrieve() ?? []))
     }
     
-    func checkCartDate() {
+    func checkCartDate(_ carts: inout [CartModel]) -> [CartModel] {
         for cart in carts {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm mm dd yyyy"
-            guard let pastDate = dateFormatter.date(from: cart.date!) else {return}
-            guard let currentDate = dateFormatter.date(from: getCurrentDate()) else {return}
-            
-            let countOfDays = Calendar.current.dateComponents([.day], from: pastDate, to: currentDate).day!
+            if let pastDate = dateFormatter.date(from: cart.date!) {
+                if let currentDate = dateFormatter.date(from: getCurrentDate()) {
+                    let countOfDays = Calendar.current.dateComponents([.day], from: pastDate, to: currentDate).day!
 
-            if countOfDays > 3 {
-                delete(cart.cartId!) { response in
-                    switch response {
-                    case .onSuccess(let carts):
-                        self.carts = carts ?? []
-                    case .onFailure:
-                        break
-                    case .onCompleted:
-                        break
+                    if countOfDays > 3 {
+                        delete(cart.cartId!) { response in
+                            switch response {
+                            case .onSuccess, .onFailure, .onCompleted:
+                                break
+                            }
+                        }
                     }
                 }
             }
         }
+        return carts
     }
     
     func getCurrentDate() -> String {
